@@ -2,8 +2,7 @@ import { audioToText } from '../llms/audio-to-text';
 import { extractValues } from '../llms/extract-values';
 
 export async function handleAudio(env: Env, audioBuffer: ArrayBuffer) {
-	const text = await audioToText(env, audioBuffer);
-	return text;
+	return await audioToText(env, audioBuffer);
 }
 
 export async function handleExtraction(env: Env, text: string) {

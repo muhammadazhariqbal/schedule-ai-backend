@@ -1,6 +1,3 @@
 [ai]
 binding = "AI"
 
-[vars]
-SPEEC-TO-TEXT-MODEL = "@cf/openai/whisper"
-EXTRACT-VALUES-MODELS = "@cf/baai/bge-reranker-base"
