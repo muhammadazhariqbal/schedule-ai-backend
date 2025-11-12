@@ -1,3 +1,5 @@
+![cover](cover.png)
+
 # Schedule-AI Backend
 
 ## Overview
