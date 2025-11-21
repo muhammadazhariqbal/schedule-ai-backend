@@ -1,5 +1,5 @@
 import { handleAudio, handleExtraction } from './scheduler';
-import { parseScheduleResponse } from './utils/parse';
+import { extractReminderData } from './utils/parse';
 
 export default {
 	async fetch(request, env: Env): Promise<Response> {
@@ -13,11 +13,15 @@ export default {
 		}
 
 		if (url.pathname === '/extract-values') {
-			const value: { text: string; now: string } = await request.json(); // Only read as JSON
+			const value: { text: string; now: string } = await request.json();
 
-			const result = await handleExtraction(env, value.text, value.now); // your extraction function
+			const response = await handleExtraction(env, value.text, value.now);
 
-			return new Response(JSON.stringify(result), { status: 200 });
+			// --- Example usage ---
+			const clientResponse = extractReminderData(response);
+			console.log(clientResponse);
+
+			return new Response(JSON.stringify(clientResponse), { status: 200 });
 		}
 
 		return new Response('running...');
