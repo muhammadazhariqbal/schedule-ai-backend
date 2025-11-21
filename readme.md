@@ -4,7 +4,7 @@
 
 ## Overview
 
-Schedule-AI Backend is a serverless AI-powered service that helps convert audio to text and extract structured schedule information from it. It uses Cloudflare AI models, Whisper for audio-to-text transcription and LLaMA for extracting structured schedule data from text.
+Schedule-AI Backend is a serverless AI-powered service that helps convert audio to text and extract structured schedule information from it. It uses Cloudflare AI models, Whisper for audio-to-text transcription and openai/gpt-oss-120b for extracting structured schedule data from text.
 
 ## Features
 
@@ -16,14 +16,14 @@ Schedule-AI Backend is a serverless AI-powered service that helps convert audio 
 
 - TypeScript / Node.js
 - Cloudflare Workers (serverless deployment)
-- OpenAI Whisper & LLaMA models
+- OpenAI Whisper & gpt-oss-120b models
 - Vitest for testing
 
 ## Architecture & Layers
 
 - **HTTP Layer (`src/index.js`)** – Handles incoming requests and routes them to the appropriate services.
 - **Service Layer (`src/schedular/`)** – Orchestrates audio transcription and schedule extraction.
-- **AI Layer (`src/llms/`)** – Contains logic for interacting with AI models (Whisper for audio-to-text, LLaMA for schedule extraction).
+- **AI Layer (`src/llms/`)** – Contains logic for interacting with AI models.
 - **Utility Layer (`src/utils/`)** – Provides helper functions like parsing AI responses into structured schedules.
 
 ### Flow
