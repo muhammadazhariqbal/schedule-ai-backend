@@ -1,5 +1,5 @@
 /**
- * Extracts tasks, date, and usage from a Cloudflare Worker LLM response.
+ * Extracts tasks, date, created at and usage from a Cloudflare Worker LLM response.
  * @param {object} response - Full API response from Cloudflare AI Worker
  * @returns {object} - Minimal client-friendly object { tasks, date, usage }
  */
@@ -20,16 +20,15 @@ export function extractReminderData(response: any) {
 			reminderData = JSON.parse(jsonString);
 		}
 	} catch (err) {
-		console.warn('Failed to parse JSON from output_text:', err);
+		console.warn('Failed to parse JSON, location:[utils/parse.ts]', err);
 	}
 
-	// Extract usage safely
-	const usageData = response.usage || null;
+	const usage = response.usage || null;
 
 	return {
 		tasks: reminderData?.tasks || null,
 		date: reminderData?.date || null,
-		usage: usageData,
+		usage: usage,
 		created_at: response.created_at,
 	};
 }

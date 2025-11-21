@@ -2,11 +2,19 @@ import { audioToText } from '../llms/audio-to-text';
 import { extractValues } from '../llms/extract-values';
 
 export async function handleAudio(env: Env, audioBuffer: ArrayBuffer) {
-	return await audioToText(env, audioBuffer);
+	try {
+		const textResponse = await audioToText(env, audioBuffer);
+		return textResponse;
+	} catch (e: any) {
+		throw new Error(e?.message || String(e));
+	}
 }
 
 export async function handleExtraction(env: Env, text: string, now: string) {
-	const schedule = await extractValues(env, text, now);
-	console.log(schedule, 'schedule.');
-	return schedule;
+	try {
+		const scheduleResponse = await extractValues(env, text, now);
+		return scheduleResponse;
+	} catch (e: any) {
+		throw new Error(e?.message || String(e));
+	}
 }
