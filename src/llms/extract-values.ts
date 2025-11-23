@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPT, USER_PROMPT } from '../../prompts/extract-schedule';
+import { SYSTEM_PROMPT } from '../../prompts/extract-task';
 
 export async function extractValues(env: Env, text: string, now: string) {
 	try {
