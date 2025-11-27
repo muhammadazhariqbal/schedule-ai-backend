@@ -4,12 +4,12 @@
 
 ## Overview
 
-Schedule-AI Backend is a serverless AI-powered service that helps convert audio to text and extract structured schedule information from it. It uses Cloudflare AI models, Whisper for audio-to-text transcription and openai/gpt-oss-120b for extracting structured schedule data from text.
+Schedule-AI Backend is a serverless AI-powered service that helps convert audio to text and extract structured task information from it. It uses Cloudflare AI models, Whisper for audio-to-text transcription and openai/gpt-oss-120b for extracting task from text.
 
 ## Features
 
 - Convert audio files to text
-- Extract schedule information from text
+- Extract task information from text
 - Structured and reusable API endpoints
 
 ## Tech Stack
@@ -17,7 +17,6 @@ Schedule-AI Backend is a serverless AI-powered service that helps convert audio 
 - TypeScript / Node.js
 - Cloudflare Workers (serverless deployment)
 - OpenAI Whisper & gpt-oss-120b models
-- Vitest for testing
 
 ## Architecture & Layers
 
@@ -39,4 +38,4 @@ Schedule-AI Backend is a serverless AI-powered service that helps convert audio 
 
 ## License
 
-MIT © Muhammad Azhari Iqbal
+MIT © Muhammad Azhar Iqbal
